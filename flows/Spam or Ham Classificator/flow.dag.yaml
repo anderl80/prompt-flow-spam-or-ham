@@ -1,0 +1,57 @@
+id: template_standard_flow
+name: Template Standard Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  email_text:
+    type: string
+    default: "Subject: photoshop , windows , office . cheap . main
+      trendingabasements darer prudently fortuitous undergonelighthearted charm
+      orinoco tasterrailroad affluent pornographic cuvierirvin parkhouse
+      blameworthy chlorophyllrobed diagrammatic fogarty clears
+      baydainconveniencing managing represented smartness hashishacademies
+      shareholders unload badnessdanielson pure caffeinspaniard chargeable
+      levin"
+outputs:
+  class:
+    type: string
+    reference: ${classifier.output}
+nodes:
+- name: classifier
+  use_variants: true
+node_variants:
+  classifier:
+    default_variant_id: variant_0
+    variants:
+      variant_0:
+        node:
+          type: llm
+          source:
+            type: code
+            path: classifier.jinja2
+          inputs:
+            deployment_name: gpt-35-turbo
+            temperature: 1
+            top_p: 1
+            presence_penalty: 0
+            frequency_penalty: 0
+            question: ${inputs.email_text}
+          provider: AzureOpenAI
+          connection: openai-playground-we-234567
+          api: chat
+          module: promptflow.tools.aoai
+      variant_1:
+        node:
+          type: llm
+          source:
+            type: code
+            path: classifier__variant_1.jinja2
+          inputs:
+            deployment_name: gpt-35-turbo
+            temperature: 1
+            top_p: 1
+            presence_penalty: 0
+            frequency_penalty: 0
+            question: ${inputs.email_text}
+          connection: openai-playground-we-234567
+          api: chat
