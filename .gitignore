@@ -1,4 +1,4 @@
 .vscode/*
-*/.promptflow/*
-*/process_log/*
-*/__pycache__/*
+.promptflow
+process_log
+__pycache__
