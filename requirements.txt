@@ -1,0 +1,10 @@
+pandas
+ipykernel
+promptflow
+promptflow-tools
+promptflow-vectordb
+keyrings.alt
+pylance
+openai
+tiktoken
+streamlit
