@@ -1,0 +1,4 @@
+.vscode/*
+*/.promptflow/*
+*/process_log/*
+*/__pycache__/*
